@@ -1,12 +1,14 @@
-package sia.tacocloud.web;
+package sia.tacocloud.web.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sia.tacocloud.Ingredient;
 import sia.tacocloud.Ingredient.Type;
+import sia.tacocloud.web.controller.tacos.Taco;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,8 +39,13 @@ public class DesignTacoController {
         model.addAttribute("design", new Taco());
         return "design";
     }
+    @PostMapping
+    public String processDesign(Design design) {
 
-    private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
+    }
+
+
+        private List<Ingredient> filterByType(List<Ingredient> ingredients, Type type) {
         if (type.equals(Type.WRAP))
             return ingredients.stream().filter(b -> b.getType().equals(Type.WRAP)).collect(Collectors.toList());
         if (type.equals(Type.CHEESE))
