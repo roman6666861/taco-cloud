@@ -16,6 +16,7 @@ import sia.tacocloud.web.controller.tacos.data.TacoRepository;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -23,6 +24,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/design")
 @SessionAttributes("order")
 public class DesignTacoController {
+
+    private final static Random random = new Random();
 
     private final IngredientRepository ingredientRepo;
 
